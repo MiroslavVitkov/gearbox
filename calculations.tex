@@ -3,6 +3,35 @@
 % P = 11kW
 % n_output_max = 5000 min^{-1}
 
+% Define a command to print variables as they get assigned.
+% Use like \VarOutput{variable_name}
+% Command written by Heiko Oberdiek (http://tex.stackexchange.com/a/269392/45581) and edited by me.
+\newcommand*{\VarOutput}[1]{%
+  \begingroup
+    \fontencoding{T1}%
+    \fontfamily{lmvtt}\selectfont % variable typewriter font
+    % alternative: \ttfamily
+    \detokenize{#1}% make _ to character
+  \endgroup
+  ~=~%
+  \FPprint{#1}%
+  \,%
+  \ExtractUnit{#1}%
+}
+\newcommand*{\ExtractUnit}[1]{%
+  \expandafter\ExtractUnitAux\detokenize{#1_}\relax
+}
+\begingroup
+  \catcode`\_=12 %
+  \gdef\ExtractUnitAux#1_#2\relax{%
+    \ifx\\#2\\%
+      #1
+    \else
+      \ExtractUnitAux#2\relax
+    \fi
+  }
+\endgroup
+
 \documentclass{article}
 \usepackage[nomessages]{fp}  % http://ctan.org/pkg/fp
 \begin{document}
@@ -10,6 +39,8 @@
 \section{Requirements}
 \FPset{P_output_kW}{11}
 \FPset{n_output_max_rpm}{5000}
+\VarOutput{P_output_kW} \\
+\VarOutput{P_output_max_rpm}
 
 %P_output_kW = \FPprint{P_output_kW} kW
 %n_output_max_rpm = \FPprint{n_output_max_rpm} rpm
