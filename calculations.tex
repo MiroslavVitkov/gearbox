@@ -33,6 +33,13 @@
   }
 \endgroup
 
+% Command to print the value of a variable, together with the measurement unit.
+% Written by me.
+\newcommand*{\PrintVar}[1]
+{
+  \FPprint{#1}
+}
+
 \documentclass{article}
 \usepackage[nomessages]{fp}  % http://ctan.org/pkg/fp
 \begin{document}
