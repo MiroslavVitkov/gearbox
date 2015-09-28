@@ -71,10 +71,25 @@ Sonsequenctly, we need transfer ratios of 1.000 and 3.333.
 
 \section{Components sizing}
 \subsection{Gears}
-Requirements: design input shaft gears G11 and G12 and output shaft gears G21 and G22
+Requirements: Design input shaft gears G11 and G12 and output shaft gears G21 and G22
 Both center distances (G11-G21 and G12-G22) must be equal.
 All gears must be capable of transmitting the rated torque \PrintVar{P_output_kW} plus efficiency losses.
-
+Gear teeth must be shaped with a cutoff or round-off to assist gear engagement.
+Conventional spur gears with involute teeth profile have been selected for this application.
+\subsubsection{Contact ratio}
+From [5] we know that Contact ratio is defined as
+$\epsilon_a = 1.88 - 3.2 (1/z_1 + 1/z_2)$ % TODO: epproximately equal
+and "for smooth and quiet operation, the contact ratio should not be less than 1.2".
+\subsubsection{Standard Basic Rack Tooth Profile}
+Due to the numerous advantages of using standard tooth geometry, we decide to adhare to the Standard Basi Rack Tooth Profile.
+$$\alpha = 20$$  % pressure angle  TODO: degrees
+$$h_a = 1.00m$$ % addendum
+$$c = 0.25m$$ % bottom clearance
+$$h_f = 1.25m$$ % daedendum
+$$\rho = 0.38m$$ % fillet radius
+$$h_w = 2.00m$$ % active tooth depth
+$$h = 2.25m$$ % whole depth
+$$s = (\pi m)/ 2$$ % tooth thickness
 
 \subsection{Shafts}
 Requirements: desing Input shaft and Output shaft with appropriate key / spline / press  joints, capable of transmitting 11kW plus efficiency losses.
