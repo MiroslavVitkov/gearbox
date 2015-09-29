@@ -81,7 +81,7 @@ From [5] we know that Contact ratio is defined as
 $\epsilon_a = 1.88 - 3.2 (1/z_1 + 1/z_2)$ % TODO: epproximately equal
 and "for smooth and quiet operation, the contact ratio should not be less than 1.2".
 \subsubsection{Standard Basic Rack Tooth Profile}
-Due to the numerous advantages of using standard tooth geometry, we decide to adhare to the Standard Basi Rack Tooth Profile.
+Due to the numerous advantages of using standard tooth geometry, we decide to adhare to the Standard Basic Rack Tooth Profile.
 $$\alpha = 20$$  % pressure angle  TODO: degrees
 $$h_a = 1.00m$$ % addendum
 $$c = 0.25m$$ % bottom clearance
@@ -90,6 +90,19 @@ $$\rho = 0.38m$$ % fillet radius
 $$h_w = 2.00m$$ % active tooth depth
 $$h = 2.25m$$ % whole depth
 $$s = (\pi m)/ 2$$ % tooth thickness
+\subsubsection{Loading and forces}
+$$F_t = 2T / d$$ % tangential force (T is torque)
+$$F_r = F_t tan\alpha$$
+$$F_n = F_t / cos \alpha $$ % resulting normal force
+% TODO: tooth failure e.g. from page 202, but is not complete
+
+\subsection{Couplings}
+Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
+We select a rigid coupling, because a flexible coupling could reduce the accuracy of the spindle rotation.
+Furthermore, we narrow down to flange couplings for their superior vibration resistence and rigidity.
+The stresses in the bolt bodies are:
+$$\tau_{av} = (8 T_{max}) / (D \pi d^2) < \tau_{all}$$  % where Tmax - maximum transmitted torque = Tnom * K; K - service factor
+% shear force on each bolt body: F = (2 T_{max}) / (z D)
 
 \subsection{Shafts}
 Requirements: desing Input shaft and Output shaft with appropriate key / spline / press  joints, capable of transmitting 11kW plus efficiency losses.
