@@ -74,7 +74,7 @@ Sonsequenctly, we need transfer ratios of 1.000 and 3.333.
 Requirements: Design input shaft gears G11 and G12 and output shaft gears G21 and G22
 Both center distances (G11-G21 and G12-G22) must be equal.
 All gears must be capable of transmitting the rated torque \PrintVar{P_output_kW} plus efficiency losses.
-Gear teeth must be shaped with a cutoff or round-off to assist gear engagement.
+Gear teeth must be shaped with a cutoff or round-off to assist gear engagement.  % зъбозаобляне
 Conventional spur gears with involute teeth profile have been selected for this application.
 \subsubsection{Contact ratio}
 From [5] we know that Contact ratio is defined as
@@ -120,6 +120,13 @@ As the requirements match, we will callculate only a single shaft design.
 \subsubsection{Shaft vibrations}
 \FPeval\vExample{3.14*2.72}
 \vExample
+
+\subsection{Bearings}
+Requirements: Select bearings of appropriate dimensions, precision, axial and radial stifness and sufficient vibration resistence.
+Because sliding bearing cannot provide adequate wear resistence and heat rejection, we need rolling element bearing.
+On the other hand, due to the complexity of designing a full-film lubrication system, we will rely on mixed film lubrication - the same used for the gear train.
+We can expect a coefficient of friction between 0.04 and 0.1.
+Because of the negligable axial load and the nessecity for high rigidity of the Output shaft, we select radial roller bearing type.
 
 \subsection{Shifter}
 \subsection{Casing and seals}
