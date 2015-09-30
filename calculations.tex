@@ -15,9 +15,7 @@
     \detokenize{#1}% make _ to character
   \endgroup
   ~=~%
-  \FPprint{#1}%
-  \,%
-  \ExtractUnit{#1}%
+  \PrintVar{#1}
 }
 \newcommand*{\ExtractUnit}[1]{%
   \expandafter\ExtractUnitAux\detokenize{#1_}\relax
@@ -38,6 +36,8 @@
 \newcommand*{\PrintVar}[1]
 {
   \FPprint{#1}
+  \,
+  \ExtractUnit{#1}
 }
 
 \documentclass{article}
@@ -59,6 +59,8 @@
 % End of title page.
 
 \section{Requirements}
+Design a 2-speed gearbox for a vertical machining center.
+The speeds needn't be changed at running motor. \\
 \SetVar{P_output_kW}{11}          \\
 \SetVar{P_output_max_rpm}{5000}
 
