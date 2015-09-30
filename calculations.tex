@@ -42,21 +42,20 @@
 
 \documentclass{article}
 \usepackage[nomessages]{fp}  % http://ctan.org/pkg/fp
+\usepackage[pdftex]{graphicx}
 \begin{document}
 
-% Beginning of title page.
 \begin{titlepage}
 \begin{center}
 \textsc{\Large Manufactoring Desing II Coursework}\\[1cm]
 \textsc{\Huge Gearbox for Machining Center}\\[1.5cm]
 \textsc{\Large Miroslav Vitkov}\\[0.5cm]
-\textsc{Facculty number: 221207005}\\[1.5cm]
+\textsc{Faculty number: 221207005}\\[1.5cm]
 % TODO: include image of final design
 \vfill
 \today
 \end{center}
 \end{titlepage}
-% End of title page.
 
 \section{Requirements}
 Design a 2-speed gearbox for a vertical machining center.
@@ -64,26 +63,22 @@ The speeds needn't be changed at running motor. \\
 \SetVar{P_output_kW}{11}          \\
 \SetVar{P_output_max_rpm}{5000}
 
-%P_output_kW = \FPprint{P_output_kW} kW
-%n_output_max_rpm = \FPprint{n_output_max_rpm} rpm
-
 \section{Motor selection}
 From [4] we select the Siemens 1PH209 spindle motor.
 It is the recommended built-in motor for standard machine tool spindle.
-Outside diameter is 205mm, output shaft diameter 67mm.
-Nominal speed 1500rpm, maximum 10000rpm.
+Outside diameter is 205 mm, output shaft diameter 67 mm.
+Nominal speed 1500 rpm, maximum 10000 rpm.
+As the motor can be requested in different power ratings, we purchase one for 12kW as to compensate frcition losses.
+\\
+\includegraphics[width=1.25\textwidth]{images/motor}~
 
 \section{Kinematic diagram} % (plan for rotational velocities)
 The goal of the gearbox is to provide sufficient torque to the spindle at low motor speeds (below $n_{nominal}$).
 For selecting the low gear we utilize the rule of thumb to choose a transfer ratio between $1/3$ and $1/4$:
 $$ TR_{low} = 1/4 $$
 For selecting the high gear, we try to match the maximum speed of the motor with the required maximum spindle speed by specification:
-$$ TR_{high} = n_{spindle, max} / n_{motor, max} $$
-
-Let us suppose the goal of our gearbox is to operate the motor in its most efficient region.
-Furthermore, let us select a low-speed gear of 1500rpm in addition to the required by specification 5000rpm gear.
-Sonsequenctly, we need transfer ratios of 1.000 and 3.333.
-%TODO: draw respective diagram
+$$ TR_{high} = n_{spindle, max} / n_{motor, max} = 5000 / 10000 = 1/2$$
+\includegraphics[width=0.75\textwidth]{images/kinematics}~
 
 \section{Components sizing}
 \subsection{Gears}
