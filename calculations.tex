@@ -115,19 +115,21 @@ Tooth thickness: $s = (\pi m)/ 2$ \\
 From [6] we select standard modules and number of teeth for G11, G12, G21 and G22.
 We select arbitrary modules for the input gears and arbitrary number of teeth, limited by $z_{min} = 17$ and $z_{max} = 33$ [6].  \\
 \FPset{vAlpha}{20\degree}
+\FPset{TR_1_}{0.25}
+\FPset{TR_2_}{0.5}
 \SetVar{m_11_mm}{6} \\
 \SetVar{m_12_mm}{6} \\
 \SetVar{z_11_}{17} \\
 \SetVar{z_12_}{20} \\ [0.5cm]
 Now calculate the output gears.
 For a transfer ratio of \PrintVar{TR_1_}, we would need G21 to have number of teeth: \\
-\SetVar{z_21_}{\Div{z_11_}{TR_1_}}  \\
+\SetVar{z_21_}{\Mul{z_11_}{TR_1_}}  \\ % DIV!!!
 \SetVar{m_21_mm}{6} \\
 This results in a center distance for G11-G21 of: \\
-\FPeval\vCenterDistance{m_21_mm * z_21_}
+\FPeval\vCenterDistance{m_11_mm * z_11_}
 $$D_{base, G11} = \FPprint{vCenterDistance}$$
 For a transfer ratio of \PrintVar{TR_2_}, we would need G22 to have number of teeth: \\
-\SetVar{z_22_}{\Div{z_12_}{TR_2_}}  \\
+\SetVar{z_22_}{\Mul{z_12_}{TR_2_}}  \\  % DIV!!!
 \SetVar{m_22_mm}{6} \\ [0.5cm]
 The table below represents numerically the resulting geometry from module and teeth number choices. \\ [0.5cm]
 \rowcolors{1}{white}{lightgray}
