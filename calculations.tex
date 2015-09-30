@@ -40,6 +40,14 @@
   \ExtractUnit{#1}
 }
 
+% Command to multiply a variale by a floating point number.
+\newcommand*{\Mul}[2]
+{
+  \FPeval{vTemp}{#1 * #2}
+  \FPround\vTemp{\vTemp}{4}  % Round to four digits after decimal point.
+  \FPprint{vTemp}
+}
+
 \documentclass{article}
 \usepackage[nomessages]{fp}  % http://ctan.org/pkg/fp
 \usepackage[pdftex]{graphicx}
@@ -115,7 +123,7 @@ The table below represents numerically the resulting geometry from module and te
 \rowcolors{1}{white}{lightgray}
 \begin{tabular}{l | c | c | c | c | c | c | c | c}
 Gear & $\alpha$ & $h_a$, [mm]       & c, [mm]                  & $h_f$, [mm] & $\rho$, [mm] & $h_w$, [mm] & h, [mm] & s, [mm] \\
-G11  & \vAlpha  & \FPprint{m_11_mm} &                          &             &              &             &         &         \\
+G11  & \vAlpha  & \FPprint{m_11_mm} & \Mul{m_11_mm}{3.14}      & \Mul{5}{0.25}            &              &             &         &         \\
 %G12  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
 %G21  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
 %G22  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
