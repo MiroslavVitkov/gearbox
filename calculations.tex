@@ -120,13 +120,18 @@ The table below represents numerically the resulting geometry from module and te
 \SetVar{m_12_mm}{6} \\
 \SetVar{z_11}{20}   \\
 \SetVar{z_12}{20}   \\ [0.5cm]
+%TODO: calculate those
+\SetVar{m_21_mm}{0} \\
+\SetVar{m_22_mm}{0} \\
+\SetVar{z_21}{0}   \\
+\SetVar{z_22}{0}   \\ [0.5cm]
 \rowcolors{1}{white}{lightgray}
 \begin{tabular}{l | c | c | c | c | c | c | c | c}
-Gear & $\alpha$ & $h_a$, [mm]       & c, [mm]                  & $h_f$, [mm] & $\rho$, [mm] & $h_w$, [mm] & h, [mm] & s, [mm] \\
-G11  & \vAlpha  & \FPprint{m_11_mm} & \Mul{m_11_mm}{3.14}      & \Mul{5}{0.25}            &              &             &         &         \\
-%G12  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
-%G21  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
-%G22  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
+Gear & $\alpha$ & $h_a$, [mm]         & c, [mm]              & $h_f$, [mm]         & $\rho$, [mm]        & $h_w$, [mm]         & h, [mm]             & s, [mm] \\
+G11  & \vAlpha  & \Mul{m_11_mm}{1.00} & \Mul{m_11_mm}{0.25}  & \Mul{m_11_mm}{1.25} & \Mul{m_11_mm}{0.38} & \Mul{m_11_mm}{2.00} & \Mul{m_11_mm}{2.25} & \Mul{m_11_mm}{1.57079} \\
+G12  & \vAlpha  & \Mul{m_12_mm}{1.00} & \Mul{m_12_mm}{0.25}  & \Mul{m_12_mm}{1.25} & \Mul{m_12_mm}{0.38} & \Mul{m_12_mm}{2.00} & \Mul{m_12_mm}{2.25} & \Mul{m_12_mm}{1.57079} \\
+G21  & \vAlpha  & \Mul{m_21_mm}{1.00} & \Mul{m_21_mm}{0.25}  & \Mul{m_21_mm}{1.25} & \Mul{m_21_mm}{0.38} & \Mul{m_21_mm}{2.00} & \Mul{m_21_mm}{2.25} & \Mul{m_21_mm}{1.57079} \\
+G22  & \vAlpha  & \Mul{m_22_mm}{1.00} & \Mul{m_22_mm}{0.25}  & \Mul{m_22_mm}{1.25} & \Mul{m_22_mm}{0.38} & \Mul{m_22_mm}{2.00} & \Mul{m_22_mm}{2.25} & \Mul{m_22_mm}{1.57079} \\
 \end{tabular}
 \subsubsection{Contact ratio} % TODO: move lower and make actual calculation
 From [5] we know that Contact ratio (number of simultaneously engaged teeth) "for smooth and quiet operation, the contact ratio should not be less than 1.2":
