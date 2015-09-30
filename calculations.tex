@@ -47,6 +47,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[bulgarian]{babel}
+\usepackage[table]{xcolor}     % For coloured rows within tables.
 
 \begin{document}
 
@@ -105,11 +106,19 @@ Tooth thickness: $s = (\pi m)/ 2$ \\
 \\
 From [6] we select standard modules and number of teeth for G11, G12, G21 and G22.
 We select arbitrary modules for the input gears and arbitrary number of teeth, limited by $z_{min} = 17$ and $z_{max} = 33$ [6].
-The table below represents numerically the resulting geometry from module and teeth number choices. \\
+The table below represents numerically the resulting geometry from module and teeth number choices. \\ [0.5cm]
 \SetVar{m_11_mm}{6} \\
 \SetVar{m_12_mm}{6} \\
 \SetVar{z_11}{20}   \\
-\SetVar{z_12}{20}   \\
+\SetVar{z_12}{20}   \\ [0.5cm]
+\rowcolors{1}{white}{lightgray}
+\begin{tabular}{l | c | c | c | c | c | c | c}
+Gear & $h_a$ & c & $h_f$ & $\rho$ & $h_w$ & h & s \\
+G11  &       &   &       &        &       &   &   \\
+G12  &       &   &       &        &       &   &   \\
+G21  &       &   &       &        &       &   &   \\
+G22  &       &   &       &        &       &   &   \\
+\end{tabular}
 \subsubsection{Contact ratio} % TODO: move lower and make actual calculation
 From [5] we know that Contact ratio (number of simultaneously engaged teeth) "for smooth and quiet operation, the contact ratio should not be less than 1.2":
 $$\epsilon_a \approx 1.88 - 3.2 (1/z_1 + 1/z_2) \geq 1.2$$
