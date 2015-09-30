@@ -114,11 +114,11 @@ The table below represents numerically the resulting geometry from module and te
 \SetVar{z_12}{20}   \\ [0.5cm]
 \rowcolors{1}{white}{lightgray}
 \begin{tabular}{l | c | c | c | c | c | c | c | c}
-Gear & $\alpha$ & $h_a$ & c & $h_f$ & $\rho$ & $h_w$ & h & s \\
-G11  & \vAlpha  &       &   &       &        &       &   &   \\
-G12  & \vAlpha  &       &   &       &        &       &   &   \\
-G21  & \vAlpha  &       &   &       &        &       &   &   \\
-G22  & \vAlpha  &       &   &       &        &       &   &   \\
+Gear & $\alpha$ & $h_a$, [mm]       & c, [mm]                  & $h_f$, [mm] & $\rho$, [mm] & $h_w$, [mm] & h, [mm] & s, [mm] \\
+G11  & \vAlpha  & \FPprint{m_11_mm} &                          &             &              &             &         &         \\
+%G12  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
+%G21  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
+%G22  & \vAlpha  & \FPprint{m_11_mm} &                         &             &              &             &         &         \\
 \end{tabular}
 \subsubsection{Contact ratio} % TODO: move lower and make actual calculation
 From [5] we know that Contact ratio (number of simultaneously engaged teeth) "for smooth and quiet operation, the contact ratio should not be less than 1.2":
