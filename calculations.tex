@@ -57,6 +57,8 @@
 \usepackage[bulgarian]{babel}
 \usepackage[table]{xcolor}     % For coloured rows within tables.
 \usepackage{siunitx}
+\usepackage{systeme}
+\usepackage{amsfonts}  % For set symbols e.g. N, R, C etc.
 
 % Not sure if siunitx includes this, so defining it myself.
 \DeclareSIUnit{\rpm}{rpm}
@@ -117,7 +119,7 @@ Whole depth: $h = 2.25m$ \\
 Tooth thickness: $s = (\pi m)/ 2$ \\
 \\
 From [6] we select standard module and number of teeth for G11.
-The module is limitted to be select among the standard modules: %TODO
+The module is limitted to be select among the standard modules[6]: $1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10$ etc.
 The number of teeth on the pinion is limitted by $z_{min} = 17$ and $z_{max} = 33$ [6]. \\
 $$m_{11} = 6 \si{\milli\meter}$$
 $$z_{11} = 17$$
@@ -126,8 +128,13 @@ For a transfer ratio of $TR_1 = 0.25$, we would need G21 to have number of teeth
 $$ z_{21} = z_{11} / TR_1 = 17 / 0.25 = 68 $$
 $$ m_{21} = 6\si{\milli\meter}  $$
 This results in a center distance for G11-G21 of: \\
-$$ CD_1 = (m_{11} * z_{11} + m_{21} * z_{21}) / 2 = $$ % TODO: how to denote center distance TODO: express as ratio, not on one line TODO: calculate
-\\
+$$ a_1 = \frac{d_1 + d_2}{2} = \frac{m_{11} z_{11} + m_{21} z_{21}}{2} = 255 \si{\milli\meter}$$
+Now we need to design gear G12 and G22 so that they have the same center distance and equal to each other's modules.
+For brevity, allowable values are listed only once. \\[0.3cm]
+\systeme*{ a_2 = \frac{m z_{12} + m z_{22}}{2} = a_1 = 255, z_{12} = z_{22} TR_2, z_{12} \geq 17, z_{12} \leq 33, z_{12} \in \mathbb{N}, z_{22} \in \mathbb{N}} \\[0.3cm]
+\systeme*{ m (z_{12} + z_{22}) = 510, z_{22} 0.5 = z_{11}} \\[0.3cm]
+$ 3 m z_{12} = 510, z_{12} \in \mathbb{N} $ \\[0.3cm]
+$ m z_{12} = 170 $ \\[0.3cm]
 The table below represents numerically the resulting geometry from module and teeth number choices. \\ [0.5cm]
 \FPset{vAlpha}{20\degree}
 \FPset{m_11}{6}
