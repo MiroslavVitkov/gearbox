@@ -48,6 +48,14 @@
   \FPprint{vTemp}
 }
 
+% Command to print the result #1 / #2.
+\newcommand*{\Div}[2]
+{
+  \FPeval{vTemp}{#1 / #2}
+  \FPround\vTemp{\vTemp}{4}  % Round to four digits after decimal point.
+  \FPprint{vTemp}
+}
+
 \documentclass{article}
 \usepackage[nomessages]{fp}  % http://ctan.org/pkg/fp
 \usepackage[pdftex]{graphicx}
@@ -131,16 +139,38 @@ This results in a center distance for G11-G21 of: \\
 $$ a_1 = \frac{d_1 + d_2}{2} = \frac{m_{11} z_{11} + m_{21} z_{21}}{2} = 255 \si{\milli\meter}$$
 Now we need to design gear G12 and G22 so that they have the same center distance and equal to each other's modules.
 For brevity, allowable values are listed only once. \\[0.3cm]
-\systeme*{ a_2 = \frac{m z_{12} + m z_{22}}{2} = a_1 = 255, z_{12} = z_{22} TR_2, z_{12} \geq 17, z_{12} \leq 33, z_{12} \in \mathbb{N}, z_{22} \in \mathbb{N}} \\[0.3cm]
+\systeme*{ a_2 = \frac{m z_{12} + m z_{22}}{2} = a_1 = 255, z_{12} = z_{22} TR_2,
+  z_{12} \geq 17, z_{12} \leq 33, z_{12} \in \mathbb{N}, z_{22} \in \mathbb{N},
+  m_{12} = m_{22} \in \{1; 1.25; 1.5; 2; 2.5; 3; 4; 5; 6; 8; 10\}} \\[0.3cm]
 \systeme*{ m (z_{12} + z_{22}) = 510, z_{22} 0.5 = z_{11}} \\[0.3cm]
 $ 3 m z_{12} = 510, z_{12} \in \mathbb{N} $ \\[0.3cm]
 $ m z_{12} = 170 $ \\[0.3cm]
+The following table lists all possible solutions: \\[0.3cm]
+\rowcolors{1}{white}{lightgray}
+\begin{tabular}{c | c }
+$m, \si{\milli\meter}$ & $z_{12}$         \\
+1                      & \Div{170}{1.00}  \\
+1.25                   & \Div{170}{1.25}  \\
+1.5                    & \Div{170}{1.50}  \\
+2                      & \Div{170}{2.00}  \\
+2.5                    & \Div{170}{2.50}  \\
+3                      & \Div{170}{3.00}  \\
+4                      & \Div{170}{4.00}  \\
+5                      & \Div{170}{5.00}  \\
+6                      & \Div{170}{6.00}  \\
+8                      & \Div{170}{8.00}  \\
+10                     & \Div{170}{10.00} \\
+\end{tabular}  \\[0.3cm]
+We have only one feasable solution:
+$$ m_{12} = m_{22} = 10 \si{\milli\meter} $$
+$$ z_{12} = 17 $$
+$$ z_{22} = 34 $$
 The table below represents numerically the resulting geometry from module and teeth number choices. \\ [0.5cm]
 \FPset{vAlpha}{20\degree}
 \FPset{m_11}{6}
 \FPset{m_12}{6}
-\FPset{m_21}{0}
-\FPset{m_22}{0}
+\FPset{m_21}{10}
+\FPset{m_22}{10}
 \rowcolors{1}{white}{lightgray}
 \begin{tabular}{l | c | c | c | c | c | c | c | c}
 Gear & $\alpha$ & $h_a$, [mm]      & c, [mm]           & $h_f$, [mm]      & $\rho$, [mm]     & $h_w$, [mm]      & h, [mm]          & s, [mm]            \\
