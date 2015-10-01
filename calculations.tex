@@ -179,9 +179,11 @@ G12  & \vAlpha  & \Mul{m_12}{1.00} & \Mul{m_12}{0.25}  & \Mul{m_12}{1.25} & \Mul
 G21  & \vAlpha  & \Mul{m_21}{1.00} & \Mul{m_21}{0.25}  & \Mul{m_21}{1.25} & \Mul{m_21}{0.38} & \Mul{m_21}{2.00} & \Mul{m_21}{2.25} & \Mul{m_21}{1.57079} \\
 G22  & \vAlpha  & \Mul{m_22}{1.00} & \Mul{m_22}{0.25}  & \Mul{m_22}{1.25} & \Mul{m_22}{0.38} & \Mul{m_22}{2.00} & \Mul{m_22}{2.25} & \Mul{m_22}{1.57079} \\
 \end{tabular}
-\subsubsection{Contact ratio} % TODO: move lower and make actual calculation
-From [5] we know that Contact ratio (number of simultaneously engaged teeth) "for smooth and quiet operation, the contact ratio should not be less than 1.2":
-$$\epsilon_a \approx 1.88 - 3.2 (1/z_1 + 1/z_2) \geq 1.2$$
+\subsubsection{Contact ratio}
+From [5] we know about the number of simultaneously engaged teeth that "for smooth and quiet operation, the contact ratio should not be less than 1.2":
+$$ \epsilon_a \approx 1.88 - 3.2 (1 / z_I + 1 / z_{II}) \geq 1.2 $$
+$$ \epsilon_{a, 1} \approx 1.88 - 3.2 (1 / z_{11} + 1 / z_{21}) \approx 1.6447 \geq 1.2 $$
+$$ \epsilon_{a, 2} \approx 1.88 - 3.2 (1 / z_{12} + 1 / z_{22}) \approx 1.5976 \geq 1.2 $$
 \subsubsection{Loading and forces}
 $$F_t = 2T / d$$ % tangential force (T is torque)
 $$F_r = F_t tan\alpha$$
