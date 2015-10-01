@@ -56,6 +56,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[bulgarian]{babel}
 \usepackage[table]{xcolor}     % For coloured rows within tables.
+\usepackage{siunitx}
+
+% Not sure if siunitx includes this, so defining it myself.
+\DeclareSIUnit{\rpm}{rpm}
 
 \begin{document}
 
@@ -74,8 +78,10 @@
 \section{Requirements}
 Design a 2-speed gearbox for a vertical machining center.
 The speeds needn't be changed at running motor. \\
-\SetVar{P_output_kW}{11}          \\
-\SetVar{P_output_max_rpm}{5000}
+$$P_{output, max} = 11 \si{\kilo\watt}$$
+$$n_{output, max} = 5000 \si{\rpm}$$
+%\SetVar{P_output_kW}{11}          \\
+%\SetVar{P_output_max_rpm}{5000}
 
 \section{Motor selection}
 From [4] we select the Siemens 1PH209 spindle motor.
