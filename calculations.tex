@@ -67,6 +67,7 @@
 \usepackage{siunitx}
 \usepackage{systeme}
 \usepackage{amsfonts}  % For set symbols e.g. N, R, C etc.
+\usepackage{mathtools}
 
 % Not sure if siunitx includes this, so defining it myself.
 \DeclareSIUnit{\rpm}{rpm}
@@ -181,14 +182,27 @@ G22  & \vAlpha  & \Mul{m_22}{1.00} & \Mul{m_22}{0.25}  & \Mul{m_22}{1.25} & \Mul
 \end{tabular}
 \subsubsection{Contact ratio}
 From [5] we know about the number of simultaneously engaged teeth that "for smooth and quiet operation, the contact ratio should not be less than 1.2":
-$$ \epsilon_a \approx 1.88 - 3.2 (1 / z_I + 1 / z_{II}) \geq 1.2 $$
-$$ \epsilon_{a, 1} \approx 1.88 - 3.2 (1 / z_{11} + 1 / z_{21}) \approx 1.6447 \geq 1.2 $$
-$$ \epsilon_{a, 2} \approx 1.88 - 3.2 (1 / z_{12} + 1 / z_{22}) \approx 1.5976 \geq 1.2 $$
-\subsubsection{Loading and forces}
-$$F_t = 2T / d$$ % tangential force (T is torque)
-$$F_r = F_t tan\alpha$$
-$$F_n = F_t / cos \alpha $$ % resulting normal force
-% TODO: tooth failure e.g. from page 202, but is not complete
+$$ \epsilon_\alpha \approx 1.88 - 3.2 (1 / z_I + 1 / z_{II}) \geq 1.2 $$
+$$ \epsilon_{\alpha, 1} \approx 1.88 - 3.2 (1 / z_{11} + 1 / z_{21}) \approx 1.6447 \geq 1.2 $$
+$$ \epsilon_{\alpha, 2} \approx 1.88 - 3.2 (1 / z_{12} + 1 / z_{22}) \approx 1.5976 \geq 1.2 $$
+\subsubsection{Bending stress}
+From both [5] and [6] we have the formula for bendig stress in gear teeth.
+Each individual gear is calculated separately.
+$$ \sigma_F = Y_{FS} Y_\epsilon Y_\beta \frac{F_t}{b m} K_A K_V K_{F\alpha} K_{F\beta} \leq \sigma_{FP} $$
+where: \\
+Tip factor: $Y_{FS}$ - taken from graph 8.13 in [6] with shift coefficient $x = 0$ [7]. \\
+Contact ratio factor: $$Y_\epsilon = \frac{1}{\epsilon_\alpha}$$
+Helical angle factor: $Y_\beta = 1$ for spur gears. \\
+Tangential force: $$F_t = \frac{2 T}{d} = \frac{\frac{P}{n i}}{m z}$$
+Tooth tickness (different notation): $b = s$ \\
+Application factor: $K_A = 1.25$ from table 8.8 in [6]. \\
+Dynamic factor: $K_V = 1.3$ - an intermediate-high value [6]. \\
+Transverse load factor: $K_{F\alpha} = 1.3$ - an intermediate-high value [6]. \\
+Load distribution factor $K_{F\beta}$ - taken from table 8.14 [6].
+Allowable tooth-root stress: $$\sigma_{FP} = \frac{\sigma_{F, lim} Y_N}{S_F}$$
+Tooth-root stress endurance limit for the chosen material: $\sigma_{F, lim}$ - from table 8.10 [6]. \\
+Stress cycle factor: $Y_N = 2.5$ - by advice in [6].
+Safety factor : $S_F = 1.7$ - by advice in [6].
 
 \subsection{Couplings}
 Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
@@ -233,6 +247,7 @@ Because of the negligable axial load and the nessecity for high rigidity of the 
 4. https://www.industry.usa.siemens.com/drives/us/en/electric-motor/mc-motors/direct-drive-motors/Documents/mtr-direct-drive-brochure.pdf  (page 16) \\
 5. Principles of mechanical engineering, Liubomir Dimitrov  \\
 6. Ръководство за конструктивни упражнения по машинни елементи, Доц Николай Николов и други
+7. http://www.gearcalc.com/downloads/manual/manualse48.html
 
 \tableofcontents
 \end{document}
