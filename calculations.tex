@@ -235,6 +235,22 @@ $$ Y_{FS} Y_\epsilon \frac{F_t}{b m} * 1.25 * 1.3 *  1.3 * 1.35 \leq \frac{700e6
 $$ Y_{FS} Y_\epsilon \frac{F_t}{b m} 2.8519 \leq 700e6 $$
 Which is obviously always correct. I have a mistake somewhere.
 
+\subsubsection{Gear-Tooth Surface Durability}
+The contact surfaces of gear teeth are subjected to Hertz contact stresses [6].
+ISO 6336 provides the following equation [6]: //
+\begin{equation}\sigma_H = Z_E Z_H Z_\epsilon Z_\beta \sqrt{\frac{F_t}{b_1 d}\frac{u + 1}{u} K_A K_V K_{H\alpha} K_{H\beta}} \leq \sigma_{HP} \end{equation}
+,where: \\
+$K_A, K_V, K_{H\alpha} = K_{F\alpha}, K_{H\beta} = K_{F\beta}$ have already been defined. \\
+Elasticity factor (for identical Young modulus and Pisson ratio):
+$$Z_E = \sqrt{\frac{1}{2 \pi \frac{1 - \upsilon^2}{E}}}$$
+Geometry factor:
+$$ Z_H = \frac{1}{cos \alpha}\sqrt{\frac{2 cos \beta}{\tan \alpha}} =  \frac{1}{cos 20 \degree}\sqrt{\frac{2}{\tan 20 \degree}} = 2.4946$$
+Contact ratio factor: $Z_\epsilon = \sqrt{\frac{4 - \epsilon_\alpha}{3}}$ [7]\\
+Helical angle factor: $Z_\beta = 1$. \\
+Allowable stress:
+$$ \sigma_{HP} = \frac{\sigma_{H, lim} Z_N}{S_H} =  \frac{1.3 \sigma_{H, lim}}{1.7} = 0.76\sigma_{H, lim} $$
+% TODO: calculate
+
 \subsection{Couplings}
 Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
 We select a rigid coupling, because a flexible coupling could reduce the accuracy of the spindle rotation.
