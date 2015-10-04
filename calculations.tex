@@ -166,13 +166,13 @@ Safety factor : $S_F = 1.7$ - by advice in [6]. \\[0.3cm]
 We select steel 18ХГТ with cementation and tempering treatment.
 In the below table, the coefficients for each gear are estimated, before being substituted into (1). \\[0.1cm]
 $$ \frac{F_t}{b m} = \frac{\frac{60}{1000}\frac{P}{\pi n m z}}{1000*1000 b m} = 60000\frac{P b}{\pi n z}$$ \\
-$$ n_{2, max} = 5000 \si{\rpm}$$
-$$ n_{1, max} = n_{2, max} / TR_2 = 10000 \si{\rpm}$$  \\ [0.2cm]
+$$ n_{2, min} = 375 \si{\rpm}$$
+$$ n_{1, min} = n_{2, min} / TR_1 = 1500 \si{\rpm}$$  \\ [0.2cm]
 \FPeval\vConst{(60000 * 11000 * 10) / 3.1415}
-\FPeval{vnz11}{10000 * 17}
-\FPeval{vnz12}{10000 * 68}
-\FPeval{vnz21}{5000 * 17}
-\FPeval{vnz22}{5000 * 34}
+\FPeval{vnz11}{1500 * 17}
+\FPeval{vnz12}{1500 * 68}
+\FPeval{vnz21}{375 * 17}
+\FPeval{vnz22}{375 * 34}
 \rowcolors{1}{white}{lightgray}
 \begin{tabular}{>{$}l<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$}}
                 & G11                  & G12                  & G21                  & G22                 \\
