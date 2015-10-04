@@ -214,17 +214,36 @@ Requirements: desing Input shaft and Output shaft with appropriate key / spline 
 As the requirements match, we will callculate only a single shaft design.
 \subsubsection{Static loading}
 1. Determine length of shaft L. \\
+sticking out - 5cm \\
+enclosure and bearings - 1cm \\
+washer and shifter - 1cm \\
+gears - 4 * 1.5cm \\
+clearance between gears 2 * 0.5cm \\
+washer and shifter 1cm \\
+bearing 1cm \\
+total 16cm \\
+diameter 6.3cm \\ [1cm]
+
 2. Determine position of supports $a_1$ and $a_2$. \\
+5.5cm $a_1$ 10cm $a_2$ 0.5cm \\
+
 3. Determine shaft loads with their magnitude and point of application. \\
+8.75cm from left OR
+3.75cm from right  \\
+Load magnitude max: $T = P / \omega = \frac{30*11000}{\pi 375}, [Nm]$ \\
+
 4. Select shaft material and its yield strength $\sigma_y$. \\
+Same as gears - 700MPa \\
+
 5. Select a safety factor S. \\
+Same as gears S = 1.7 \\
+
 %TODO: draw shaft loading diagram
 %etc p 158
+
 \subsubsection{Fatigue loading}
 \subsubsection{Shaft deflection}
 \subsubsection{Shaft vibrations}
-\FPeval\vExample{3.14*2.72}
-\vExample
 
 \subsection{Couplings}
 Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
