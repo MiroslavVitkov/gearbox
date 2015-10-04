@@ -194,40 +194,46 @@ Tip factor: $Y_{FS}$ - taken from graph 8.13 in [6] with shift coefficient $x = 
 Contact ratio factor: $$Y_\epsilon = \frac{1}{\epsilon_\alpha}$$
 Helical angle factor: $Y_\beta = 1$ for spur gears. \\
 Tangential force:
-$$ T = \frac{P}{\omega} = \frac{P}{(2 \pi n) / 60} = \frac{30 P}{\pi n}$$
-$$ F_t = \frac{2 T}{d} =  \frac{60 P}{\pi n d}  = \frac{60 P}{\pi n m z}$$
-Tooth tickness (different notation): $b = s$ \\
+$$ T = \frac{P}{\omega} = \frac{P}{\frac{2 \pi}{60}n} = \frac{30 P}{\pi n}$$
+$$ F_t = \frac{2}{1000}\frac{T}{d} = \frac{60}{1000}\frac{P}{\pi n d}  = \frac{60}{1000}\frac{P}{\pi n m z}$$
+Gear thickness: $b = 10 \si{\milli\meter}$ - freely selected. \\
 Application factor: $K_A = 1.25$ from table 8.8 in [6]. \\
 Dynamic factor: $K_V = 1.3$ - an intermediate-high value [6]. \\
 Transverse load factor: $K_{F\alpha} = 1.3$ - an intermediate-high value [6]. \\
 Load distribution factor $K_{F\beta}$ - taken from figure 8.14 [6]. \\
 Allowable tooth-root stress: $$\sigma_{FP} = \frac{\sigma_{F, lim} Y_N}{S_F}$$
 Tooth-root stress endurance limit for the chosen material: $\sigma_{F, lim}$ - from table 8.10 [6]. \\
-Stress cycle factor: $Y_N = 2.5$ - by advice in [6]. \\
+Stress cycle factor: $Y_N = 1.7$ - by advice in [6]. \\
 Safety factor : $S_F = 1.7$ - by advice in [6]. \\[0.3cm]
 We select steel 18ХГТ with cementation and tempering treatment.
 In the below table, the coefficients for each gear are estimated, before being substituted into (1). \\[0.1cm]
-$$ \frac{F_t}{m z} = \frac{\frac{60 P}{\pi n m z}}{m z} = \frac{60 P}{\pi n}$$
+$$ \frac{F_t}{b m} = \frac{\frac{60}{1000}\frac{P}{\pi n m z}}{1000*1000 b m} = 60000\frac{P b}{\pi n z}$$ \\
 $$ n_{2, max} = 5000 \si{\rpm}$$
 $$ n_{1, max} = n_{2, max} / TR_2 = 10000 \si{\rpm}$$  \\ [0.2cm]
-\FPeval\vConst{60 * 11000 / 3.1415}
-\FPset{vn1}{10000}
-\FPset{vn2}{5000}
+\FPeval\vConst{(60000 * 11000 * 10) / 3.1415}
+\FPeval{vnz11}{10000 * 17}
+\FPeval{vnz12}{10000 * 68}
+\FPeval{vnz21}{5000 * 17}
+\FPeval{vnz22}{5000 * 34}
 \rowcolors{1}{white}{lightgray}
 \begin{tabular}{>{$}l<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$} | >{$}c<{$}}
-                & G11                & G12                & G21                & G22                \\
-Y_{FS}          & 4.25               & 4.25               & 3.70               & 3.85               \\
-Y_\epsilon      & \Div{1}{1.6447}    & \Div{1}{1.5976}    & \Div{1}{1.6447}    & \Div{1}{1.5976}    \\
-Y_\beta         & 1                  & 1                  & 1                  & 1                  \\
-\frac{F_t}{b m} & \Div{vConst}{vn1}  & \Div{vConst}{vn1}  & \Div{vConst}{vn2}  & \Div{vConst}{vn2}  \\
-K_A             & 1.25               & 1.25               & 1.25               & 1.25               \\
-K_V             & 1.3                & 1.3                & 1.3                & 1.3                \\
-K_{F\alpha}     & 1.3                & 1.3                & 1.3                & 1.3                \\
-K_{F\beta}      & 1.35               & 1.35               & 1.35               & 1.35               \\
-\sigma_{F, lim} & 700e6              & 700e6              & 700e6              & 700e6              \\
-Y_N             & 2.5                & 2.5                & 2.5                & 2.5                \\
-S_F             & 1.7                & 1.7                & 1.7                & 1.7                \\
-\end{tabular}
+                & G11                  & G12                  & G21                  & G22                 \\
+Y_{FS}          & 4.25                 & 4.25                 & 3.70                 & 3.85                \\
+Y_\epsilon      & \Div{1}{1.6447}      & \Div{1}{1.5976}      & \Div{1}{1.6447}      & \Div{1}{1.5976}     \\
+Y_\beta         & 1                    & 1                    & 1                    & 1                   \\
+\frac{F_t}{b m} & \Div{vConst}{vnz11} & \Div{vConst}{vnz12}  & \Div{vConst}{vnz21}  & \Div{vConst}{vnz22} \\
+K_A             & 1.25                 & 1.25                 & 1.25                 & 1.25                \\
+K_V             & 1.3                  & 1.3                  & 1.3                  & 1.3                 \\
+K_{F\alpha}     & 1.3                  & 1.3                  & 1.3                  & 1.3                 \\
+K_{F\beta}      & 1.35                 & 1.35                 & 1.35                 & 1.35                \\
+\sigma_{F, lim} & 700e6                & 700e6                & 700e6                & 700e6               \\
+Y_N             & 2.5                  & 2.5                  & 2.5                  & 2.5                 \\
+S_F             & 1.7                  & 1.7                  & 1.7                  & 1.7                 \\
+\end{tabular} \\[0.3cm]
+We can generalise that
+$$ Y_{FS} Y_\epsilon \frac{F_t}{b m} * 1.25 * 1.3 *  1.3 * 1.35 \leq \frac{700e6 *  1.7}{1.7} $$
+$$ Y_{FS} Y_\epsilon \frac{F_t}{b m} 2.8519 \leq 700e6 $$
+Which is obviously always correct. I have a mistake somewhere.
 
 \subsection{Couplings}
 Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
