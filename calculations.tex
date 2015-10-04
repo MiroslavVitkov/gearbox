@@ -209,14 +209,6 @@ Allowable stress:
 $$ \sigma_{HP} = \frac{\sigma_{H, lim} Z_N}{S_H} =  \frac{1.3 \sigma_{H, lim}}{1.7} = 0.76\sigma_{H, lim} $$
 % TODO: calculate
 
-\subsection{Couplings}
-Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
-We select a rigid coupling, because a flexible coupling could reduce the accuracy of the spindle rotation.
-Furthermore, we narrow down to flange couplings for their superior vibration resistence and rigidity.
-The stresses in the bolt bodies are:
-$$\tau_{av} = (8 T_{max}) / (D \pi d^2) < \tau_{all}$$  % where Tmax - maximum transmitted torque = Tnom * K; K - service factor
-% shear force on each bolt body: F = (2 T_{max}) / (z D)
-
 \subsection{Shafts}
 Requirements: desing Input shaft and Output shaft with appropriate key / spline / press  joints, capable of transmitting 11kW plus efficiency losses.
 As the requirements match, we will callculate only a single shaft design.
@@ -233,6 +225,14 @@ As the requirements match, we will callculate only a single shaft design.
 \subsubsection{Shaft vibrations}
 \FPeval\vExample{3.14*2.72}
 \vExample
+
+\subsection{Couplings}
+Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
+We select a rigid coupling, because a flexible coupling could reduce the accuracy of the spindle rotation.
+Furthermore, we narrow down to flange couplings for their superior vibration resistence and rigidity.
+The stresses in the bolt bodies are:
+$$\tau_{av} = (8 T_{max}) / (D \pi d^2) < \tau_{all}$$  % where Tmax - maximum transmitted torque = Tnom * K; K - service factor
+% shear force on each bolt body: F = (2 T_{max}) / (z D)
 
 \subsection{Bearings}
 Requirements: Select bearings of appropriate dimensions, precision, axial and radial stifness and sufficient vibration resistence.
