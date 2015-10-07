@@ -242,39 +242,51 @@ Therefore, the gear train is expected to last for tens of years of operation [6]
 Requirements: desing Input shaft and Output shaft with appropriate key / spline / press  joints, capable of transmitting 11kW plus efficiency losses.
 As the requirements match, we will callculate only a single shaft design.
 \subsubsection{Static loading}
-1. Determine length of shaft L. \\
-sticking out - 5cm \\
-enclosure and bearings - 1cm \\
-washer and shifter - 1cm \\
-gears - 4 * 1.5cm \\
-clearance between gears 2 * 0.5cm \\
-washer and shifter 1cm \\
-bearing 1cm \\
-total 16cm \\
-diameter 6.3cm \\ [1cm]
+%1. Determine length of shaft L. \\
+%sticking out - 5cm \\
+%enclosure and bearings - 1cm \\
+%washer and shifter - 1cm \\
+%gears - 4 * 1.5cm \\
+%clearance between gears 2 * 0.5cm \\
+%washer and shifter 1cm \\
+%bearing 1cm \\
+%total 16cm \\
+%diameter 6.3cm \\ [1cm]
 
-2. Determine position of supports $a_1$ and $a_2$. \\
-5.5cm $a_1$ 10cm $a_2$ 0.5cm \\
+%2. Determine position of supports $a_1$ and $a_2$. \\
+%5.5cm $a_1$ 10cm $a_2$ 0.5cm \\
 
-3. Determine shaft loads with their magnitude and point of application. \\
-8.75cm from left OR
-3.75cm from right  \\
-Load magnitude max: \\
+%3. Determine shaft loads with their magnitude and point of application. \\
+%8.75cm from left OR
+%3.75cm from right  \\
+Maximum load magnitude: \\
 $$T = P / \omega = \frac{30*11000}{375 \pi} = 280 \si{\newton}\si{\meter}$$
 $$ F_r = F_t \tan \alpha = \frac{2* 1000* T}{d} \tan \alpha = \frac{2 * 1000 * 280}{68} \tan 20 \degree = 2997.4018 \approx 3 \si{\kilo\newton}$$
 
-4. Select shaft material and its yield strength $\sigma_y$. \\
+Select shaft material and its yield strength $\sigma_y$. \\
 Same as gears - 700MPa \\
 
 5. Select a safety factor S. \\
 Same as gears S = 1.7 \\
 
-%TODO: draw shaft loading diagram
-%etc p 158
+Axial forces are negligeable and shall be neglected.
+Now we determine the reaction forces in the supports. \\
+\systeme*{\sum{F_y} = 0, \sum{M_z} = 0} \\
+\systeme*{F_C = F_B + F_D, F_C * CD = F_B * BD} \\
+\systeme*{3000 = F_B + F_D, 3000 * 22.5 = F_B * 100} \\
+$$ F_B = 675 \si{\newton} $$
+$$ F_D = 2325 \si{\newton} $$
+We have pure shear stress:
+$$ \tau_{shear} = \frac{F}{A} = \frac{F_C}{\frac{1}{4*10^6}\pi d^2} = \frac{3000 * 4 * 10^6}{\pi 67^2} = 850931 \si{\pascal} \approx 0.85\si{\mega\pascal}$$
+$$ \tau_{torsion} = \frac{16*30^9*T}{\pi d^3} = 4741508 \si{\pascal} \approx 4.74 \si{\mega\pascal}$$
+\includegraphics[width=1.25\textwidth]{images/fbd}~
+The critical section is at the gear G21 [10]:
+$$ \sigma_{eq} = \sqrt{0.85^2 + 4.73^2} = 4.08 \si{\mega\pascal} \leq 0.58 * 700\si{\mega\pascal}  $$
+The inequality is true within significant factor of safety $\geq 1.7$.
 
-\subsubsection{Fatigue loading}
-\subsubsection{Shaft deflection}
-\subsubsection{Shaft vibrations}
+%\subsubsection{Fatigue loading}
+%\subsubsection{Shaft deflection}
+%\subsubsection{Shaft vibrations}
 
 \subsection{Couplings}
 Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
@@ -305,6 +317,7 @@ Because of the negligable axial load and the nessecity for high rigidity of the 
 7. http://www.gearcalc.com/downloads/manual/manualse48.html  \\
 8. https://en.wikipedia.org/wiki/Young's\_modulus \\
 9. https://en.wikipedia.org/wiki/Poisson's\_ratio \\
+10. https://en.wikipedia.org/wiki/Shear\_strength \\
 
 \tableofcontents
 \end{document}
