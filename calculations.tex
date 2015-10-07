@@ -271,9 +271,9 @@ Same as gears S = 1.7 \\
 
 Axial forces are negligeable and shall be neglected.
 Now we determine the reaction forces in the supports. \\
-\systeme*{\sum{F_y} = 0, \sum{M_z} = 0} \\
-\systeme*{F_C = F_B + F_D, F_C * CD = F_B * BD} \\
-\systeme*{3000 = F_B + F_D, 3000 * 22.5 = F_B * 100} \\
+\systeme*{\sum{F_y} = 0, \sum{M_z} = 0} \\[0.1cm]
+\systeme*{F_C = F_B + F_D, F_C * CD = F_B * BD} \\[0.1cm]
+\systeme*{3000 = F_B + F_D, 3000 * 22.5 = F_B * 100} \\[0.1cm]
 $$ F_B = 675 \si{\newton} $$
 $$ F_D = 2325 \si{\newton} $$
 We have pure shear stress:
@@ -289,15 +289,18 @@ The inequality is true within significant factor of safety $\geq 1.7$.
 %\subsubsection{Shaft vibrations}
 
 \subsection{Couplings}
-Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle.
+Requirements: Design a way to connect the Input shaft to the driving motor and the output shaft to the spindle. \\[0.3cm]
 We select a rigid coupling, because a flexible coupling could reduce the accuracy of the spindle rotation.
 Furthermore, we narrow down to flange couplings for their superior vibration resistence and rigidity.
-The stresses in the bolt bodies are:
-$$\tau_{av} = (8 T_{max}) / (D \pi d^2) < \tau_{all}$$  % where Tmax - maximum transmitted torque = Tnom * K; K - service factor
+We select flange width $D = 40\si{\milli\meter}$.
+The stresses in the bolt bodies are [6]:
+$$ \tau_{av} = \frac{8 T_{max}}{D \pi d^2} \leq \tau_{all} $$  % where Tmax - maximum transmitted torque = Tnom * K; K - service factor
+$$ \tau_{av} = \frac{8 * 280 * 10^9}{40 *\pi *67^2} \leq  700 * 10^6 \si{\pascal}$$
+$$ 3971013 \si{\pascal} \approx 4\si{\mega\pascal} \leq 700 \si{\mega\pascal}$$
 % shear force on each bolt body: F = (2 T_{max}) / (z D)
 
 \subsection{Bearings}
-Requirements: Select bearings of appropriate dimensions, precision, axial and radial stifness and sufficient vibration resistence.
+Requirements: Select bearings of appropriate dimensions, precision, axial and radial stifness and sufficient vibration resistence.\\[0.3cm]
 Because sliding bearing cannot provide adequate wear resistence and heat rejection, we need rolling element bearing.
 On the other hand, due to the complexity of designing a full-film lubrication system, we will rely on mixed film lubrication - the same used for the gear train.
 We can expect a coefficient of friction between 0.04 and 0.1.
